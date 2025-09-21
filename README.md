@@ -1,5 +1,5 @@
-# LightweightHolograms
-A Light-Weight hologram plugin for paper servers. It is designed to use as little resources as possible, in the smallest jar possible!
+# Hologram-OG
+A soft fork of Lightweight Holograms for 1.19.4, a hologram plugin for paper servers. It is designed to use as little resources as possible, in the smallest jar possible!
 
 How to use:
 
@@ -23,6 +23,6 @@ For `movehere`, you only need to enter the id of the hologram you wish to move, 
 
 Finally, `delete`, you also only need to enter the id of the hologram, which, once again, can be found with `list`.
 
-Now you're a pro at LightweightHolograms! Have fun!
+Now you're a pro at Hologram-OG! Have fun!
 
 (More features may be added in the future)
