@@ -18,6 +18,7 @@ public class Hologram {
     int lines = 1;
 
     public Hologram(Location l, Component n) {
+
         summonedEntities = (ArmorStand) l.getWorld().spawnEntity(l, EntityType.ARMOR_STAND);
         summonedEntities.customName(n);
         summonedEntities.setCustomNameVisible(true);
@@ -30,49 +31,75 @@ public class Hologram {
         summonedEntities.setInvisible(true);
         summonedEntities.setInvulnerable(true);
         summonedEntities.setCanTick(false);
-        summonedEntities.setDisabledSlots(EquipmentSlot.CHEST, EquipmentSlot.FEET, EquipmentSlot.HAND, EquipmentSlot.LEGS, EquipmentSlot.HEAD, EquipmentSlot.OFF_HAND);
+        summonedEntities.setDisabledSlots(EquipmentSlot.CHEST, EquipmentSlot.FEET, EquipmentSlot.HAND,
+                EquipmentSlot.LEGS, EquipmentSlot.HEAD, EquipmentSlot.OFF_HAND);
         summonedEntities.setCanMove(false);
         summonedEntities.setGlowing(false);
         summonedEntities.setMarker(true);
-        summonedEntities.getPersistentDataContainer().set(new NamespacedKey(LightweightHolograms.plugin, "persistent"), PersistentDataType.BYTE, (byte) 1);
+        summonedEntities.getPersistentDataContainer().set(new NamespacedKey(LightweightHolograms.plugin, "persistent"),
+                PersistentDataType.BYTE, (byte) 1);
+
     }
 
     public Hologram(Map<String, Object> datain) {
-        this(Location.deserialize((Map<String, Object>) datain.get("location")), MiniMessage.miniMessage().deserialize(((String) datain.get("component"))));
+
+        this(Location.deserialize((Map<String, Object>) datain.get("location")),
+                MiniMessage.miniMessage().deserialize(((String) datain.get("component"))));
         lines = datain.containsKey("lines") ? (int) datain.get("lines") : 0;
+
     }
 
     public void addLine(Component c) {
+
         LightweightHolograms.holograms.add(new Hologram(getNextLineLocation(), c));
         lines++;
+
     }
 
     public void destructor() {
+
         summonedEntities.remove();
         summonedEntities = null;
+
     }
 
     public void setName(Component n) {
+
         this.summonedEntities.customName(n);
+
     }
 
     public void moveHere(Location loc) {
+
         this.summonedEntities.teleport(loc);
+
     }
 
     public Location getLocation() {
+
         return this.summonedEntities.getLocation();
+
     }
 
     public String getName() {
+
         return MiniMessage.miniMessage().serialize(this.summonedEntities.customName());
+
     }
 
     private Location getNextLineLocation() {
-        return new Location(summonedEntities.getWorld(), summonedEntities.getLocation().getX(), summonedEntities.getLocation().getY() - (0.3 * lines), summonedEntities.getLocation().getZ());
+
+        return new Location(summonedEntities.getWorld(), summonedEntities.getLocation().getX(),
+                summonedEntities.getLocation().getY() - (0.3 * lines), summonedEntities.getLocation().getZ());
+
     }
 
     public @NotNull Map<String, Object> serialize() {
-        return Map.of("lines", this.lines, "component", MiniMessage.miniMessage().serialize(this.summonedEntities.customName()), "location", this.summonedEntities.getLocation().serialize());
+
+        return Map.of("lines", this.lines, "component",
+                MiniMessage.miniMessage().serialize(this.summonedEntities.customName()), "location",
+                this.summonedEntities.getLocation().serialize());
+
     }
+
 }

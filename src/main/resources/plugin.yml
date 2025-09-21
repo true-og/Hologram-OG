@@ -1,4 +1,7 @@
-name: LightweightHolograms
-version: '${project.version}'
+name: Hologram-OG
+author: NotAlexNoyle
+description: Lightweight holograms for Purpur servers.
+website: https://github.com/true-og/Hologram-OG/
+version: '${version}'
+api-version: '${apiVersion}'
 main: me.mskatking.lightweightholograms.LightweightHolograms
-api-version: '1.16'
