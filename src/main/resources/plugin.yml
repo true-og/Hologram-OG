@@ -4,4 +4,4 @@ description: Lightweight holograms for Purpur servers.
 website: https://github.com/true-og/Hologram-OG/
 version: '${version}'
 api-version: '${apiVersion}'
-main: me.mskatking.lightweightholograms.LightweightHolograms
+main: org.blackninja745studios.lightweightholograms.LightweightHolograms
