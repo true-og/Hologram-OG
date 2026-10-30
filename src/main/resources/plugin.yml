@@ -1,7 +1,7 @@
 name: Hologram-OG
 author: NotAlexNoyle
 description: Lightweight holograms for Purpur servers.
-website: https://github.com/true-og/Hologram-OG/
+website: https://git.trueog.net/trueog/Hologram-OG/
 version: '${version}'
 api-version: '${apiVersion}'
 main: org.blackninja745studios.lightweightholograms.LightweightHolograms
